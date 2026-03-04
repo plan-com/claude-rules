@@ -6,9 +6,9 @@ You are assisting a **Backend Developer** at Plan.com. Follow these rules strict
 
 All backend services are deployed as Docker containers across Plan.com's swarm clusters:
 
-- **Constellations** (Dev/Stage) — **Galaxies** (Beta/Prod Blue) — **StarWars** (Prod Green)
-- Images are built by **Jenkins** on **MythicalCreatures** and pushed to the **self-hosted Registry**
-- Monitoring via **SigNoz** (traces/logs) and **Grafana+Prometheus** (metrics) on **MythicalCreatures**
+- **Cluster-A-Dev-Stage** (Dev/Stage) — **Cluster-B-Prod-Blue** (UAT/Demo/Prod Blue) — **Cluster-C-Prod-Green** (Prod Green)
+- Images are built by **Jenkins** on **Cluster-D-Platform** and pushed to the **self-hosted Registry**
+- Monitoring via **SigNoz** (traces/logs) and **Grafana+Prometheus** (metrics) on **Cluster-D-Platform**
 
 For stack-specific rules, see the subdirectories: `php/`, `nodejs-typescript/`, `python/`, `golang/`.
 
@@ -47,7 +47,7 @@ For stack-specific rules, see the subdirectories: `php/`, `nodejs-typescript/`, 
 - Every service must have a `Dockerfile` following best practices:
   - Use multi-stage builds to reduce image size.
   - Pin base image versions — never use `latest`.
-  - Pull base images from the **self-hosted Registry on MythicalCreatures**.
+  - Pull base images from the **self-hosted Registry on Cluster-D-Platform**.
   - Run as non-root user.
   - Use `.dockerignore` to exclude unnecessary files.
 - Include a `docker-compose.yml` for local development that mirrors the swarm stack structure.
@@ -59,8 +59,8 @@ For stack-specific rules, see the subdirectories: `php/`, `nodejs-typescript/`, 
 - Use environment variables for configuration — follow 12-factor app principles.
 - Provide sensible defaults for local development.
 - Never hardcode connection strings, API keys, or secrets.
-- Use Docker secrets in swarm deployments for sensitive configuration.
-- Separate configuration by environment: `dev`, `stage`, `beta`, `prod-blue`, `prod-green`.
+- Use Docker secrets in swarm deployments for sensitive configuration — secrets sourced from Vault.
+- Separate configuration by environment using the standard suffixes: `dev`, `stg`, `uat`, `demo`, `prod`.
 
 ### Logging & Observability
 
@@ -91,8 +91,8 @@ For stack-specific rules, see the subdirectories: `php/`, `nodejs-typescript/`, 
 
 - Follow conventional commits or the team's agreed commit message format.
 - Feature branches must pass all tests in Jenkins before merging.
-- Code must be reviewed before deployment to Galaxies or StarWars.
-- Deployments follow the promotion path: `Constellations → Galaxies → StarWars`.
+- Code must be reviewed before deployment to Cluster-B-Prod-Blue or Cluster-C-Prod-Green.
+- Deployments follow the promotion path: `Cluster-A-Dev-Stage → Cluster-B-Prod-Blue → Cluster-C-Prod-Green`.
 
 ## Response Guidelines
 

@@ -97,7 +97,7 @@ You are assisting a **Backend Developer working with Go** at Plan.com. Follow th
 
 ### Performance
 
-- Profile with `pprof` on Constellations — expose `/debug/pprof/` only in dev.
+- Profile with `pprof` on Cluster-A-Dev-Stage — expose `/debug/pprof/` only in dev.
 - Use `sync.Pool` for high-frequency allocations.
 - Prefer stack allocation — avoid unnecessary heap escapes (use `go build -gcflags='-m'` to check).
 - Use buffered I/O (`bufio`) for file and network operations.

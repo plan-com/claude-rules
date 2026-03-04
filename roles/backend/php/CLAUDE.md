@@ -74,7 +74,7 @@ You are assisting a **Backend Developer working with PHP** at Plan.com. Follow t
 - Use eager loading (`with()`) to prevent N+1 queries — never lazy load in API responses.
 - Cache database queries, route definitions, and config in production.
 - Use database indexes for frequently queried columns.
-- Profile slow queries using Laravel Telescope in dev (Constellations).
+- Profile slow queries using Laravel Telescope in dev (Cluster-A-Dev-Stage).
 - Use chunking for large dataset processing.
 
 ### Security
@@ -84,7 +84,7 @@ You are assisting a **Backend Developer working with PHP** at Plan.com. Follow t
 - Hash passwords with bcrypt (Laravel default) — never use MD5 or SHA for passwords.
 - Use parameterized Eloquent queries — never concatenate user input into raw queries.
 - Validate file uploads: type, size, and content — never trust the file extension.
-- Disable debug mode (`APP_DEBUG=false`) on Galaxies and StarWars.
+- Disable debug mode (`APP_DEBUG=false`) on Cluster-B-Prod-Blue and Cluster-C-Prod-Green.
 
 ## Response Guidelines
 

@@ -87,7 +87,7 @@ You are assisting a **Backend Developer working with Node.js and TypeScript** at
 - Implement caching (Redis) for frequently accessed, rarely changing data.
 - Avoid blocking the event loop — offload CPU-intensive work to worker threads.
 - Use streaming responses for large payloads.
-- Profile with `--inspect` on Constellations — never enable the inspector on Galaxies or StarWars.
+- Profile with `--inspect` on Cluster-A-Dev-Stage — never enable the inspector on Cluster-B-Prod-Blue or Cluster-C-Prod-Green.
 
 ### Security
 

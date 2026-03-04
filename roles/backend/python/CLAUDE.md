@@ -88,7 +88,7 @@ You are assisting a **Backend Developer working with Python** at Plan.com. Follo
 
 - Use async frameworks (FastAPI + async ORMs) for I/O-bound services.
 - Use connection pooling (SQLAlchemy pool, asyncpg pool).
-- Profile with `cProfile` or `py-spy` on Constellations — never in production.
+- Profile with `cProfile` or `py-spy` on Cluster-A-Dev-Stage — never in production.
 - Use Redis for caching hot data.
 - Process large datasets with generators/iterators — avoid loading everything into memory.
 - Use Celery or `arq` for background job processing.
@@ -99,7 +99,7 @@ You are assisting a **Backend Developer working with Python** at Plan.com. Follo
 - Use parameterized queries with SQLAlchemy or Django ORM — never use f-strings in SQL.
 - Use `python-jose` or `PyJWT` for JWT handling.
 - Never use `pickle` to deserialize untrusted data.
-- Set `DEBUG=False` on Galaxies and StarWars.
+- Set `DEBUG=False` on Cluster-B-Prod-Blue and Cluster-C-Prod-Green.
 - Use `secrets` module for generating tokens — never `random`.
 
 ## Response Guidelines

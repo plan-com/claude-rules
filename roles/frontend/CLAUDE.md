@@ -6,10 +6,12 @@ You are assisting a **Frontend Developer** at Plan.com. Follow these rules stric
 
 Frontend applications at Plan.com are containerized and deployed across Docker Swarm clusters:
 
-- **Constellations** (Dev/Stage) — **Galaxies** (Beta/Prod Blue) — **StarWars** (Prod Green)
+- **Cluster-A-Dev-Stage** (Dev/Stage) — **Cluster-B-Prod-Blue** (UAT/Demo/Prod Blue) — **Cluster-C-Prod-Green** (Prod Green)
 - Traffic enters via **Traefik** reverse proxy on each swarm
-- Monitoring via **SigNoz** and **Grafana+Prometheus** on **MythicalCreatures**
-- Images built by **Jenkins** and pushed to the **self-hosted Registry** on **MythicalCreatures**
+- Monitoring via **SigNoz** and **Grafana+Prometheus** on **Cluster-D-Platform**
+- Images built by **Jenkins** and pushed to the **self-hosted Registry** on **Cluster-D-Platform**
+
+For stack-specific rules, see the subdirectories: `react/`, `react-native/`.
 
 ## Rules
 
@@ -81,7 +83,7 @@ Frontend applications at Plan.com are containerized and deployed across Docker S
 ### Docker & Deployment
 
 - Use multi-stage Docker builds: build stage (Node.js for compilation) and runtime stage (nginx/caddy for static serving).
-- Base images from the **self-hosted Registry on MythicalCreatures**.
+- Base images from the **self-hosted Registry on Cluster-D-Platform**.
 - Configure the web server (nginx) for SPA routing (fallback to `index.html`).
 - Set proper cache headers: long-term for hashed assets, no-cache for `index.html`.
 - Environment-specific configuration should be injected at runtime (via `window.__CONFIG__` or environment endpoint), not build time.
@@ -93,7 +95,7 @@ Frontend applications at Plan.com are containerized and deployed across Docker S
 - Use structured logging for client-side errors sent to the backend.
 - Integrate OpenTelemetry browser SDK for distributed tracing where applicable.
 - Track Web Vitals (LCP, FID, CLS) and report to monitoring.
-- Use Grafana dashboards on MythicalCreatures to monitor frontend performance metrics.
+- Use Grafana dashboards on Cluster-D-Platform to monitor frontend performance metrics.
 
 ### Security
 
@@ -108,8 +110,8 @@ Frontend applications at Plan.com are containerized and deployed across Docker S
 
 - Feature branches must pass linting, type checking, and tests in Jenkins before merge.
 - Build artifacts are Docker images pushed to the self-hosted Registry.
-- Preview deployments on Constellations for PRs when configured.
-- Follow promotion path: `Constellations → Galaxies → StarWars`.
+- Preview deployments on Cluster-A-Dev-Stage for PRs when configured.
+- Follow promotion path: `Cluster-A-Dev-Stage → Cluster-B-Prod-Blue → Cluster-C-Prod-Green`.
 
 ## Response Guidelines
 

@@ -6,10 +6,10 @@ You are assisting a **UX/UI Designer** at Plan.com. Follow these rules strictly.
 
 While you do not manage infrastructure, understanding deployment environments helps you plan design rollouts:
 
-- **Constellations** (Dev/Stage) — Where prototypes and design implementations are first tested
-- **Galaxies** (Beta/Prod Blue) — Where beta users experience new designs before full rollout
-- **StarWars** (Prod Green) — Live production with real users
-- New designs follow the same promotion pipeline: Constellations → Galaxies → StarWars
+- **Cluster-A-Dev-Stage** (Dev/Stage) — Where prototypes and design implementations are first tested
+- **Cluster-B-Prod-Blue** (UAT/Demo/Prod Blue) — Where beta users experience new designs before full rollout
+- **Cluster-C-Prod-Green** (Prod Green) — Live production with real users
+- New designs follow the same promotion pipeline: Cluster-A-Dev-Stage → Cluster-B-Prod-Blue → Cluster-C-Prod-Green
 
 ## Rules
 
@@ -54,7 +54,7 @@ While you do not manage infrastructure, understanding deployment environments he
 
 - Base design decisions on user research data, not personal preference.
 - Validate designs with usability testing before handoff to development.
-- Use Galaxies (Beta) deployments for A/B testing with real users.
+- Use Cluster-B-Prod-Blue (Beta) deployments for A/B testing with real users.
 - Document research findings and how they informed design decisions.
 - Create user personas and journey maps for complex features.
 - Test with diverse user groups including those with disabilities.
